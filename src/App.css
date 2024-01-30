@@ -3,6 +3,26 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+
+  --main-color: hsl(205, 58%, 52%);
+  --light-color: hsl(225, 22%, 96%);
+  --txt-color: hsl(0, 0%, 20%);
+  --error-color: hsl(349, 100%, 35%);
+  --warning-color: hsl(36, 86%, 52%);
+  --muted-color: hsl(0, 0%, 71%);
+
+  --main-color-25: hsl(200, 50%, 98%);
+  --main-color-50: hsl(205, 45%, 94%);
+  --main-color-100: hsl(205, 46%, 84%);
+  --main-color-200: hsl(205, 46%, 74%);
+  --main-color-300: hsl(205, 47%, 63%);
+  --main-color-400: hsl(205, 47%, 55%);
+  --main-color-500:hsl(205, 54%, 45%);
+  --main-color-600: hsl(205, 75%, 37%);
+  --main-color-700: hsl(205, 58%, 42%);
+  --main-color-800: hsl(205, 61%, 39%);
+
+
 }
 
 .logo {
