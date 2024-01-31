@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './FriendModal.css'
 
 export interface FormData {
   person: string,
@@ -35,50 +36,50 @@ const FriendModal = ({
 
   return (
     <>
-      <div className="modal">
-        <div className="inputs_holder">
-          <span className="btn_close" onClick={onClose}>
-            &times;
-          </span>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Persona
+      <div className="modal_holder">
+        <div className="modal">
+          <div className="inputs_holder">
+            <button className="btn_close" onClick={onClose}>
+              <i className="fa fa-close"></i>
+            </button>
+            <form onSubmit={handleSubmit}>
+              <label className="form_label">Persona</label>
               <input
+                className="form_input"
                 type="text"
                 name="person"
                 value={formData.person}
                 onChange={handleChange}
               />
-            </label>
-            <label>
-              Concepto
+              <label className="form_label">Concepto</label>
               <input
+                className="form_input"
                 type="text"
                 name="concept"
                 value={formData.concept}
                 onChange={handleChange}
               />
-            </label>
-            <label>
-              Fecha
+              <label className="form_label">Fecha</label>
               <input
+                className="form_input"
                 type="text"
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
               />
-            </label>
-            <label>
-              Total
+              <label className="form_label">Total</label>
               <input
-                type="text"
+                className="form_input"
+                type="number"
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
               />
-            </label>
-            <button type="submit">Guardar amigo</button>
-          </form>
+              <button className="form_button" type="submit">
+                Guardar amigo
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </>
