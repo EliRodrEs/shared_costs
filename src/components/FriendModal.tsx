@@ -1,18 +1,11 @@
 import { useState } from "react";
-import './FriendModal.css'
 
-export interface FormData {
-  person: string,
-  concept: string,
-  date: string,
-  amount: number
+export interface FriendFormData {
+  name: string,
 }
 
-const emptyForm: FormData = {
-  person: "",
-  concept: "",
-  date: "",
-  amount: 0,
+const emptyForm: FriendFormData = {
+  name: "",
 };
 
 const FriendModal = ({
@@ -20,18 +13,18 @@ const FriendModal = ({
   onSubmit,
 }: {
   onClose: () => void;
-  onSubmit: (formData: FormData) => void;
+  onSubmit: (friendFormData: FriendFormData) => void;
 }) => {
-  const [formData, setFormData] = useState(emptyForm);
+  const [friendFormData, setFormData] = useState(emptyForm);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...friendFormData, [name]: value });
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    onSubmit(formData);
+    onSubmit(friendFormData);
   };
 
   return (
@@ -43,36 +36,12 @@ const FriendModal = ({
               <i className="fa fa-close"></i>
             </button>
             <form onSubmit={handleSubmit}>
-              <label className="form_label">Persona</label>
+              <label className="form_label">Nombre</label>
               <input
                 className="form_input"
                 type="text"
-                name="person"
-                value={formData.person}
-                onChange={handleChange}
-              />
-              <label className="form_label">Concepto</label>
-              <input
-                className="form_input"
-                type="text"
-                name="concept"
-                value={formData.concept}
-                onChange={handleChange}
-              />
-              <label className="form_label">Fecha</label>
-              <input
-                className="form_input"
-                type="text"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-              />
-              <label className="form_label">Total</label>
-              <input
-                className="form_input"
-                type="number"
-                name="amount"
-                value={formData.amount}
+                name="name"
+                value={friendFormData.name}
                 onChange={handleChange}
               />
               <button className="form_button" type="submit">

@@ -10,9 +10,11 @@ const iconAddCost = "fa-solid fa-face-frown";
 const Header = ({
   title,
   openFriendModal,
+  openCostModal,
 }: {
   title: string;
   openFriendModal: () => void;
+  openCostModal: () => void
 }) => {
   return (
     <>
@@ -23,7 +25,7 @@ const Header = ({
             text="Añadir pago"
             icon={iconAddCost}
             onClick={() => {
-              openFriendModal();
+              openCostModal();
             }}
           />
           <Button
