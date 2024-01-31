@@ -1,0 +1,6 @@
+header {
+  background-color: var(--main-color);
+  position: absolute;
+  top: 	0;
+  width: 100%;
+}
