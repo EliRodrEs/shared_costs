@@ -26,6 +26,6 @@
 
 main {
   display: flex;
-  column-gap: 3rem;
+  column-gap: 8rem;
   justify-content: center;
 }

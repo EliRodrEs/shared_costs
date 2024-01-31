@@ -1,0 +1,14 @@
+.cost {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid var(--main-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.tbl_head {
+  color: var(--main-color);
+  border: none;
+  font-size: 1.2rem;
+}

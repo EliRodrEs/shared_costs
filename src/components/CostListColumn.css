@@ -1,0 +1,17 @@
+.cost_table {
+  border-collapse: collapse;
+  padding: 3rem;
+  width: 40vw;
+  table-layout: fixed;
+}
+th {
+  font-size: 1.2rem;
+  border: 1px solid var(--main-color);
+  color: var(--light-color);
+  text-align: center;
+  padding: 1rem;
+}
+td {
+  font-size: 1.1rem;
+  text-align: center;
+}
