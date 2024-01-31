@@ -16,7 +16,6 @@
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
 }
 
 .card .name {
@@ -30,6 +29,18 @@
   letter-spacing: 0.25rem;
 }
 
+.balance {
+  font-size: 1.5rem;
+}
+
 .card:hover {
   height: 16.85rem;
+}
+
+.positive_bg {
+  background-color: var(--main-color);
+}
+
+.negative_bg {
+  background-color: var(--error-color);
 }
