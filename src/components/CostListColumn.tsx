@@ -30,8 +30,7 @@ const CostsListColumn = () => {
                 <tr key={index}>
                   <td>{cost.person}</td>
                   <td colSpan={2}>{cost.concept}</td>
-                  <td>{cost.date.toLocaleDateString()}</td>{" "}
-                  {/* Assuming date is a Date object */}
+                  <td>{cost.date.toLocaleDateString()}</td>
                   <td>{cost.amount} €</td>
                 </tr>
               ))}
