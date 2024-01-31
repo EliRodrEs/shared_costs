@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Header title="Base_header" />
+      <Header title="Monopoly party" />
       <main>
         <CostsListColumn />
         <BalanceColumn />
