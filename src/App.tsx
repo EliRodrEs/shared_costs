@@ -58,7 +58,7 @@ function App() {
         {modalType === "cost" && <CostModal onSubmit={handleSubmitModal} />}
       </Modal>
       <main>
-        <CostsListColumn />
+        <CostsListColumn setSavedCosts={setSavedCosts} />
         <BalanceColumn />
       </main>
     </>
