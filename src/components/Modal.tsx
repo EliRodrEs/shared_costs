@@ -8,16 +8,11 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({
   onClose,
-  onSubmit,
   children,
   show,
 }) => {
   const handleClose = () => {
     onClose();
-  };
-
-  const handleSubmit = () => {
-    onSubmit();
   };
 
   return (
@@ -30,13 +25,6 @@ const Modal: React.FC<ModalProps> = ({
                 <i className="fa fa-close"></i>
               </button>
               {children}
-              <button
-                className="form_button"
-                type="submit"
-                onClick={handleSubmit}
-              >
-                Guardar
-              </button>
             </div>
           </div>
         </div>

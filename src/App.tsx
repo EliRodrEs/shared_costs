@@ -74,7 +74,11 @@ function App() {
       >
         {showFriendModal && <FriendModal onSubmit={handleSubmitFriendModal} />}
 
-        {showCostModal && <CostModal onSubmit={handleSubmitCostModal} />}
+        {showCostModal && (
+          <CostModal
+            onSubmit={handleSubmitCostModal}
+          />
+        )}
       </Modal>
       <main>
         <CostsListColumn />

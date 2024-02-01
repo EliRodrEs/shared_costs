@@ -31,6 +31,10 @@ const CostModal = ({
     onSubmit(costFormData);
   };
 
+  const formatDate = (date: Date) => {
+    return date.toISOString().substring(0, 10)
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -55,7 +59,11 @@ const CostModal = ({
           className="form_input"
           type="date"
           name="date"
-          value={costFormData.date.toDateString()}
+          value={
+            typeof costFormData.date === "string"
+              ? costFormData.date
+              : formatDate(costFormData.date)
+          }
           onChange={handleChange}
         />
         <label className="form_label">Total</label>

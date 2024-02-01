@@ -36,6 +36,9 @@ const FriendModal = ({
           value={friendFormData.name}
           onChange={handleChange}
         />
+        <button className="form_button" type="submit">
+          Añadir amigo
+        </button>
       </form>
     </>
   );
