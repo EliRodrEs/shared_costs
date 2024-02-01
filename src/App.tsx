@@ -13,70 +13,49 @@ import { Cost } from './costs'
 import { UseLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
-  const [showFriendModal, setShowFriendModal] = useState(false)
-  const [showCostModal, setShowCostModal] = useState(false)
-
+  const [modalType, setModalType] = useState('')
   const [savedFriends, setSavedFriends] = UseLocalStorage<Friend[]>('savedFriends', [])
   const [savedCosts, setSavedCosts] = UseLocalStorage<Cost[]>('savedCosts', [])
 
-
-  const openFriendModal = () => {
-    setShowFriendModal(true);
-  }
-
-  const openCostModal = () => {
-    setShowCostModal(true)
+  const handleOpenModal = (type: string) => {
+    setModalType(type)
   }
 
   const handleCloseModal = () => {
-    setShowFriendModal(false);
-    setShowCostModal(false)
+    setModalType('')
   }
 
-  const handleSubmitFriendModal = (friendFormData: FriendFormData) => {
-    const newFriend: Friend = {
-      id: Date.now() + Math.random(),
-      name: friendFormData.name,
-    };
-
-    setSavedFriends([...savedFriends, newFriend])
-    handleCloseModal();
-  };
-
-  const handleSubmitCostModal = (costFormData: CostFormData) => {
+  const handleSubmitModal = (formData: FriendFormData | CostFormData) => {
+    if (modalType === 'friend') {
+      const newFriend: Friend = {
+        id: Date.now() + Math.random(),
+        name: (formData as FriendFormData).name,
+      };
+      setSavedFriends([...savedFriends, newFriend]);
+    } else {
         let newCost: Cost = {
           id: Date.now() + Math.random(),
-          person: costFormData.person,
-          concept: costFormData.concept,
-          date: costFormData.date,
-          amount: costFormData.amount,
+          person: (formData as CostFormData).person,
+          concept: (formData as CostFormData).concept,
+          date: (formData as CostFormData).date,
+          amount: (formData as CostFormData).amount,
         };
 
         setSavedCosts([...savedCosts, newCost]);
+    }
     handleCloseModal();
-  };
-
-
+  }
 
   return (
     <>
       <Header
         title="Monopoly party"
-        openFriendModal={openFriendModal}
-        openCostModal={openCostModal}
+        openFriendModal={() => handleOpenModal("friend")}
+        openCostModal={() => handleOpenModal("cost")}
       />
-      <Modal
-        onClose={handleCloseModal}
-        onSubmit={() => {}}
-        show={showFriendModal || showCostModal}
-      >
-        {showFriendModal && <FriendModal onSubmit={handleSubmitFriendModal} />}
-
-        {showCostModal && (
-          <CostModal
-            onSubmit={handleSubmitCostModal}
-          />
-        )}
+      <Modal onClose={handleCloseModal} onSubmit={() => {}} show={!!modalType}>
+        {modalType === "friend" && <FriendModal onSubmit={handleSubmitModal} />}
+        {modalType === "cost" && <CostModal onSubmit={handleSubmitModal} />}
       </Modal>
       <main>
         <CostsListColumn />
