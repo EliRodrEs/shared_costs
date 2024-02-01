@@ -10,10 +10,14 @@ import { FriendFormData } from "./components/FriendModal";
 import { CostFormData } from "./components/CostsModal"
 import { Friend } from './friends'
 import { Cost } from './costs'
+import { UseLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
   const [showFriendModal, setShowFriendModal] = useState(false)
   const [showCostModal, setShowCostModal] = useState(false)
+
+  const [savedFriends, setSavedFriends] = UseLocalStorage<Friend[]>('savedFriends', [])
+  const [savedCosts, setSavedCosts] = UseLocalStorage<Cost[]>('savedCosts', [])
 
 
   const openFriendModal = () => {
@@ -30,22 +34,17 @@ function App() {
   }
 
   const handleSubmitFriendModal = (friendFormData: FriendFormData) => {
-    let savedFriends: Friend[] = JSON.parse(localStorage.getItem('savedFriends') || '[]')
-    let newFriend = {
+    const newFriend: Friend = {
       id: Date.now() + Math.random(),
       name: friendFormData.name,
     };
 
-    savedFriends.push(newFriend)
-    localStorage.setItem("savedFriends", JSON.stringify(savedFriends));
+    setSavedFriends([...savedFriends, newFriend])
     handleCloseModal();
   };
 
   const handleSubmitCostModal = (costFormData: CostFormData) => {
-        let savedCosts: Cost[] = JSON.parse(
-          localStorage.getItem("savedCosts") || "[]"
-        );
-        let newCost = {
+        let newCost: Cost = {
           id: Date.now() + Math.random(),
           person: costFormData.person,
           concept: costFormData.concept,
@@ -53,8 +52,7 @@ function App() {
           amount: costFormData.amount,
         };
 
-        savedCosts.push(newCost);
-        localStorage.setItem("savedCosts", JSON.stringify(savedCosts));
+        setSavedCosts([...savedCosts, newCost]);
     handleCloseModal();
   };
 
