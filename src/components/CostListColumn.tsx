@@ -1,28 +1,16 @@
+import { useEffect, useState } from 'react';
 import './CostListColumn.css'
 import SectionTitle from './UI/SectionTitle';
-
-const costs = [
-  {
-    person: "karlach",
-    concept: "Comida en el restaurante",
-    date: new Date(),
-    amount: 123.54,
-  },
-  {
-    person: "Shadowheart",
-    concept: "Cine",
-    date: new Date(),
-    amount: 20.5,
-  },
-  {
-    person: "Shadowheart",
-    concept: "Cena",
-    date: new Date(),
-    amount: 25.5,
-  },
-];
+import { Cost } from '../costs';
 
 const CostsListColumn = () => {
+  const [costs, setCosts] = useState<Cost[]>([])
+
+  useEffect(() => {
+    const savedCostsStr = localStorage.getItem("savedCosts");
+    const costs: [] = savedCostsStr ? JSON.parse(savedCostsStr) : []
+    setCosts(costs)
+   }, [])
 
   return (
     <>
@@ -43,7 +31,7 @@ const CostsListColumn = () => {
                 <tr key={index}>
                   <td>{cost.person}</td>
                   <td colSpan={2}>{cost.concept}</td>
-                  <td>{cost.date.toLocaleDateString()}</td>
+                  <td>{cost.date ? new Date(cost.date).toLocaleDateString() : 'N/A'}</td>
                   <td>{cost.amount} €</td>
                 </tr>
               ))}
