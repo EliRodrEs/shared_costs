@@ -59,7 +59,7 @@ function App() {
       </Modal>
       <main>
         <CostsListColumn setSavedCosts={setSavedCosts} />
-        <BalanceColumn />
+        <BalanceColumn setSavedFriends={setSavedFriends}/>
       </main>
     </>
   );
