@@ -2,12 +2,25 @@ import './CostListColumn.css'
 import SectionTitle from './UI/SectionTitle';
 
 const costs = [
-    {
-      person: 'karlach',
-      concept: 'Comida en el restaurante',
-      date: new Date(),
-      amount: 123.54
-    }]
+  {
+    person: "karlach",
+    concept: "Comida en el restaurante",
+    date: new Date(),
+    amount: 123.54,
+  },
+  {
+    person: "Shadowheart",
+    concept: "Cine",
+    date: new Date(),
+    amount: 20.5,
+  },
+  {
+    person: "Shadowheart",
+    concept: "Cena",
+    date: new Date(),
+    amount: 25.5,
+  },
+];
 
 const CostsListColumn = () => {
 
