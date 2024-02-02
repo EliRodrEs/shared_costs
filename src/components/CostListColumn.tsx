@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react';
 import './CostListColumn.css'
 import SectionTitle from './UI/SectionTitle';
 import { Cost } from '../costs';
+import { Friend } from '../friends';
+import { useCostsAndFriends } from '../hooks/useCostsAndFriends';
 
-const CostsListColumn = ({ setSavedCosts }: { setSavedCosts: (costs: Cost[]) => void}) => {
-  const [costs, setCosts] = useState<Cost[]>([]);
-
-  useEffect(() => {
-    const savedCostsStr = localStorage.getItem("savedCosts");
-    const costs: Cost[] = savedCostsStr ? JSON.parse(savedCostsStr) : [];
-    costs.sort((a: Cost, b: Cost) => {
-       return new Date(b.date).getTime() - new Date(a.date).getTime();
-     });
-    setCosts(costs);
-  }, [setSavedCosts]);
+const CostsListColumn = ({
+  setSavedCosts
+}: {
+  setSavedCosts: (costs: Friend[] | Cost[]) => void;
+}) => {
+  const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
 
   return (
     <>
