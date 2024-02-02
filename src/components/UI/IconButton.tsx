@@ -1,5 +1,5 @@
-import './Button.css'
-const Button = ({
+import './IconButton.css'
+const IconButton = ({
   text,
   icon,
   onClick,
@@ -18,4 +18,4 @@ const Button = ({
   );
 };
 
-export default Button
+export default IconButton
