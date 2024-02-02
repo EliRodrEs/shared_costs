@@ -8,11 +8,11 @@ const CostsListColumn = ({ setSavedCosts }: { setSavedCosts: (costs: Cost[]) => 
 
   useEffect(() => {
     const savedCostsStr = localStorage.getItem("savedCosts");
-    const costs: [] = savedCostsStr ? JSON.parse(savedCostsStr) : [];
-    const orderedCosts = costs.sort((a: Cost, b: Cost) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime()
-    })
-    setCosts(orderedCosts);
+    const costs: Cost[] = savedCostsStr ? JSON.parse(savedCostsStr) : [];
+    costs.sort((a: Cost, b: Cost) => {
+       return new Date(b.date).getTime() - new Date(a.date).getTime();
+     });
+    setCosts(costs);
   }, [setSavedCosts]);
 
   return (
