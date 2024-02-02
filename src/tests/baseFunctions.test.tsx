@@ -43,5 +43,5 @@ it("getPersonalPayments() -> Should filter the payments by a given friend and ge
 it("getPersonalDebt() -> Should divide the totalCost between all the friends and subtract the personal payments", () => {
 
   const friends = 2
-  expect(getPersonalDebt(inputCosts, friends, friend)).toBe(70)
+  expect(getPersonalDebt(inputCosts, friends, friend)).toBe(-70)
  })

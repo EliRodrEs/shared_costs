@@ -23,7 +23,8 @@ const CostModal = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...costFormData, [name]: value });
+    const newValue = name === 'amount' ? parseFloat(value) : value
+    setFormData({ ...costFormData, [name]: newValue });
   };
 
   const handleSubmit = (e: React.SyntheticEvent) => {

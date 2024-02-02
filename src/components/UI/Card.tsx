@@ -1,7 +1,7 @@
 import './Card.css'
 
 const Card = ({ name, balance }: {name: string, balance:number}) => {
-  const card_class = balance > 0 ? "positive_bg" : "negative_bg";
+  const card_class = balance <= 0 ? "positive_bg" : "negative_bg";
 
   return (
     <>

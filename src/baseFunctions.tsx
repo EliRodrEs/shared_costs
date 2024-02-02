@@ -22,5 +22,5 @@ export function getPersonalDebt(
 ) {
   const totalCost = getTotalCost(costsRepositoryAmounts);
   const personalPayments = getPersonalPayments(costsRepositoryAmounts, friend);
-  return totalCost / friends - personalPayments
+  return -(totalCost / friends - personalPayments)
 }

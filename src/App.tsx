@@ -14,8 +14,14 @@ import { UseLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
   const [modalType, setModalType] = useState('')
-  const [savedFriends, setSavedFriends] = UseLocalStorage<Friend[]>('savedFriends', [])
-  const [savedCosts, setSavedCosts] = UseLocalStorage<Cost[]>('savedCosts', [])
+  const [savedFriends, setSavedFriends] = UseLocalStorage<Friend[]>(
+    "savedFriends",
+    []
+  ) as [Friend[], (friends: Friend[] | Cost[]) => void];
+  const [savedCosts, setSavedCosts] = UseLocalStorage<Cost[]>(
+    "savedCosts",
+    []
+  ) as [Cost[], (costs: Friend[] | Cost[]) => void];
 
   const handleOpenModal = (type: string) => {
     setModalType(type)
@@ -59,7 +65,10 @@ function App() {
       </Modal>
       <main>
         <CostsListColumn setSavedCosts={setSavedCosts} />
-        <BalanceColumn setSavedFriends={setSavedFriends}/>
+        <BalanceColumn
+          setSavedFriends={setSavedFriends}
+          setSavedCosts={setSavedCosts}
+        />
       </main>
     </>
   );
