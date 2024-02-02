@@ -1,5 +1,5 @@
 import './Header.css'
-import Button from './UI/Button'
+import IconButton from './UI/IconButton'
 
 const iconAddFriend = "fa-solid fa-face-smile-beam";
 const iconAddCost = "fa-solid fa-face-frown";
@@ -21,14 +21,14 @@ const Header = ({
       <header>
         <h1>{title}</h1>
         <div className="btn_holder">
-          <Button
+          <IconButton
             text="Añadir pago"
             icon={iconAddCost}
             onClick={() => {
               openCostModal();
             }}
           />
-          <Button
+          <IconButton
             text="Añadir amigo"
             icon={iconAddFriend}
             onClick={() => {
