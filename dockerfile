@@ -7,7 +7,7 @@ COPY *.html ./
 COPY *.json ./
 COPY *.ts ./
 
-EXPOSE 8888
+EXPOSE 8080
 RUN npm install
 RUN npm run build
 
