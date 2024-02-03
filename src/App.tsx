@@ -12,6 +12,7 @@ import { CostFormData } from "./components/CostsModal"
 import { Friend } from './friends'
 import { Cost } from './costs'
 import { UseLocalStorage } from './hooks/useLocalStorage'
+import { useCostsAndFriends } from './hooks/useCostsAndFriends'
 
 function App() {
   const [modalType, setModalType] = useState('')
@@ -53,6 +54,13 @@ function App() {
     handleCloseModal();
   }
 
+  const friends = useCostsAndFriends(
+    "savedFriends",
+    [],
+    setSavedFriends
+  ) as Friend[];
+  const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
+
   return (
     <>
       <Header
@@ -65,13 +73,13 @@ function App() {
         {modalType === "cost" && <CostModal onSubmit={handleSubmitModal} />}
       </Modal>
       <main>
-        <CostsListColumn setSavedCosts={setSavedCosts} />
+        <CostsListColumn costs={costs} />
         <BalanceColumn
-          setSavedFriends={setSavedFriends}
-          setSavedCosts={setSavedCosts}
+          friends={friends}
+          costs={costs}
         />
       </main>
-      <Footer setSavedFriends={setSavedFriends} setSavedCosts={setSavedCosts} />
+      <Footer friends={friends} costs={costs} />
     </>
   );
 }

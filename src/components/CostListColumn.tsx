@@ -1,16 +1,13 @@
 import './CostListColumn.css'
 import SectionTitle from './UI/SectionTitle';
 import { Cost } from '../costs';
-import { Friend } from '../friends';
-import { useCostsAndFriends } from '../hooks/useCostsAndFriends';
 import { useMemo } from 'react';
 
 const CostsListColumn = ({
-  setSavedCosts
+  costs
 }: {
-  setSavedCosts: (costs: Friend[] | Cost[]) => void;
+  costs: Cost[];
 }) => {
-  const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
   const orderedCosts = useMemo(() => {
       return costs
         .slice()

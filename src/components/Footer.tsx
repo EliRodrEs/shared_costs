@@ -1,21 +1,14 @@
 import { Cost } from '../costs';
 import { Friend, FriendDebt, calculatePayments, classifyFriends, getFriendsDebts } from '../friends';
-import { useCostsAndFriends } from '../hooks/useCostsAndFriends';
 import './Footer.css'
 import SummaryCard from './UI/summaryCard';
 const Footer = ({
-  setSavedFriends,
-  setSavedCosts
+  friends,
+  costs
 }: {
-  setSavedFriends: (friends: Friend[] | Cost[]) => void;
-  setSavedCosts: (costs: Friend[] | Cost[]) => void;
+  friends: Friend[]
+  costs: Cost[]
 }) => {
-  const friends = useCostsAndFriends(
-    "savedFriends",
-    [],
-    setSavedFriends
-  ) as Friend[];
-  const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
   const { summaryDebts }: { summaryDebts: FriendDebt[] } = getFriendsDebts(friends, costs);
   const classifiedFriends = classifyFriends(summaryDebts);
   const summaryFriendsAndDebts = calculatePayments(

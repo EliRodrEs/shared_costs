@@ -4,22 +4,15 @@ import SectionTitle from "./UI/SectionTitle"
 import { Friend } from "../friends";
 import { Cost } from "../costs";
 import { getPersonalDebt } from "../baseFunctions";
-import { useCostsAndFriends } from "../hooks/useCostsAndFriends";
 
 
 const BalanceColumn = ({
-  setSavedFriends,
-  setSavedCosts,
+  friends,
+  costs,
 }: {
-  setSavedFriends: (friends: Friend[] | Cost[]) => void;
-  setSavedCosts: (costs: Friend[] | Cost[]) => void;
+  friends: Friend[]
+  costs: Cost[]
 }) => {
-  const friends = useCostsAndFriends(
-    "savedFriends",
-    [],
-    setSavedFriends
-  ) as Friend[];
-  const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
 
   function handleBalance(friend: Friend) {
     return getPersonalDebt(costs, friends.length, friend);
