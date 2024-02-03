@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Friend } from "../friends";
 
 export interface CostFormData {
   person: string;
@@ -16,44 +17,55 @@ const emptyForm: CostFormData = {
 
 const CostModal = ({
   onSubmit,
+  friends,
 }: {
   onSubmit: (costFormData: CostFormData) => void;
+  friends: Friend[]
 }) => {
   const [costFormData, setFormData] = useState(emptyForm);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    const newValue = name === 'amount' ? parseFloat(value) : value
+    const newValue = name === "amount" ? parseFloat(value) : value;
     setFormData({ ...costFormData, [name]: newValue });
   };
 
+  const handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...costFormData, [name]: value });
+  };
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     onSubmit(costFormData);
   };
 
   const formatDate = (date: Date) => {
-    return date.toISOString().substring(0, 10)
-  }
+    return date.toISOString().substring(0, 10);
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label className="form_label">Persona</label>
-        <input
+        <select
           className="form_input"
-          type="text"
           name="person"
           value={costFormData.person}
-          onChange={handleChange}
-        />
+          onChange={handleChangeSelect}
+        >
+          {friends.map((friend) => (
+            <option key={friend.id} value={friend.name}>
+              {friend.name}
+            </option>
+          ))}
+        </select>
         <label className="form_label">Concepto</label>
         <input
           className="form_input"
           type="text"
           name="concept"
           value={costFormData.concept}
-          onChange={handleChange}
+          onChange={handleChangeInput}
         />
         <label className="form_label">Fecha</label>
         <input
@@ -65,7 +77,7 @@ const CostModal = ({
               ? costFormData.date
               : formatDate(costFormData.date)
           }
-          onChange={handleChange}
+          onChange={handleChangeInput}
         />
         <label className="form_label">Total</label>
         <input
@@ -73,7 +85,7 @@ const CostModal = ({
           type="number"
           name="amount"
           value={costFormData.amount}
-          onChange={handleChange}
+          onChange={handleChangeInput}
         />
         <button className="form_button" type="submit">
           Guardar coste

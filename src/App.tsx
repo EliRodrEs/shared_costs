@@ -70,14 +70,13 @@ function App() {
       />
       <Modal onClose={handleCloseModal} onSubmit={() => {}} show={!!modalType}>
         {modalType === "friend" && <FriendModal onSubmit={handleSubmitModal} />}
-        {modalType === "cost" && <CostModal onSubmit={handleSubmitModal} />}
+        {modalType === "cost" && (
+          <CostModal onSubmit={handleSubmitModal} friends={friends} />
+        )}
       </Modal>
       <main>
         <CostsListColumn costs={costs} />
-        <BalanceColumn
-          friends={friends}
-          costs={costs}
-        />
+        <BalanceColumn friends={friends} costs={costs} />
       </main>
       <Footer friends={friends} costs={costs} />
     </>
