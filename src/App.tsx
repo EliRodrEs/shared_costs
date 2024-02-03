@@ -71,7 +71,7 @@ function App() {
           setSavedCosts={setSavedCosts}
         />
       </main>
-      <Footer />
+      <Footer setSavedFriends={setSavedFriends} setSavedCosts={setSavedCosts} />
     </>
   );
 }

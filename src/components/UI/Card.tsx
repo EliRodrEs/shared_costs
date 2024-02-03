@@ -7,7 +7,7 @@ const Card = ({ name, balance }: {name: string, balance:number}) => {
     <>
       <div className={`card ${card_class}`}>
         <p className="name">{name}</p>
-        <p className="balance">{balance.toFixed(2)} €</p>
+        <p className="balance">{Math.round(balance * 100) / 100} €</p>
       </div>
     </>
   );
