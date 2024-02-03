@@ -30,6 +30,7 @@ main {
   display: flex;
   column-gap: 8rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .modal_holder {
