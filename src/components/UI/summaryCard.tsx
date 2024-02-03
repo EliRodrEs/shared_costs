@@ -1,4 +1,4 @@
-
+import './summaryCard.css'
 
 const SummaryCard = (
 {debtorName,
@@ -11,11 +11,18 @@ debt: number})  => {
 
   return (
     <>
-      <p>{debtorName}</p>
-      <span>--</span>
-      <p>{creditorName}</p>
-      <span>=</span>
-      <p>{debt}</p>
+      <div className="summaryCard">
+        <div className="textBox">
+          <div className="textContent">
+            <p className="h1">{debtorName}</p>
+            <span>
+              <i className="fa-solid fa-arrow-right"></i>
+            </span>
+            <p className="h1">{creditorName}</p>
+            <p>{debt}<span>€</span></p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

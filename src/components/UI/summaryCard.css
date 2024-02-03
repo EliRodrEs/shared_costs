@@ -1,0 +1,34 @@
+.summaryCard {
+  width: 100%;
+  background: #353535;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  transition: 0.5s ease-in-out;
+  padding: 0rem 0.3rem;
+}
+
+.summaryCard:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.textBox {
+  width: calc(100% - 90px);
+  margin-left: 10px;
+  color: var(--light-color);
+  font-family: 'Poppins' sans-serif;
+}
+
+.textContent {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+  justify-content: space-between;
+}
+
+.h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
