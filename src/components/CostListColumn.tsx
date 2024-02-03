@@ -3,6 +3,7 @@ import SectionTitle from './UI/SectionTitle';
 import { Cost } from '../costs';
 import { Friend } from '../friends';
 import { useCostsAndFriends } from '../hooks/useCostsAndFriends';
+import { useMemo } from 'react';
 
 const CostsListColumn = ({
   setSavedCosts
@@ -10,9 +11,13 @@ const CostsListColumn = ({
   setSavedCosts: (costs: Friend[] | Cost[]) => void;
 }) => {
   const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
-  const orderedCosts: Cost[] = costs.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  const orderedCosts = useMemo(() => {
+      return costs
+        .slice()
+        .sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+    }, [costs]);
 
   return (
     <>
