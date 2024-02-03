@@ -21,6 +21,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 10rem;
   background-color: var(--txt-color);
 }

@@ -5,6 +5,7 @@ import BalanceColumn from './components/BalanceColumn'
 import Modal from './components/Modal'
 import FriendModal from './components/FriendModal'
 import CostModal from './components/CostsModal'
+import Footer from './components/Footer'
 import { useState } from 'react'
 import { FriendFormData } from "./components/FriendModal";
 import { CostFormData } from "./components/CostsModal"
@@ -70,6 +71,7 @@ function App() {
           setSavedCosts={setSavedCosts}
         />
       </main>
+      <Footer />
     </>
   );
 }
