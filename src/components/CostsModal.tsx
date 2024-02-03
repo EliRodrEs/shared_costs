@@ -37,6 +37,7 @@ const CostModal = ({
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     onSubmit(costFormData);
+
   };
 
   const formatDate = (date: Date) => {
@@ -52,7 +53,11 @@ const CostModal = ({
           name="person"
           value={costFormData.person}
           onChange={handleChangeSelect}
+          required
         >
+          <option value="" disabled selected>
+            Elegir pagador
+          </option>
           {friends.map((friend) => (
             <option key={friend.id} value={friend.name}>
               {friend.name}
@@ -66,6 +71,7 @@ const CostModal = ({
           name="concept"
           value={costFormData.concept}
           onChange={handleChangeInput}
+          required
         />
         <label className="form_label">Fecha</label>
         <input
@@ -78,6 +84,7 @@ const CostModal = ({
               : formatDate(costFormData.date)
           }
           onChange={handleChangeInput}
+          required
         />
         <label className="form_label">Total</label>
         <input
@@ -86,6 +93,7 @@ const CostModal = ({
           name="amount"
           value={costFormData.amount}
           onChange={handleChangeInput}
+          required
         />
         <button className="form_button" type="submit">
           Guardar coste
