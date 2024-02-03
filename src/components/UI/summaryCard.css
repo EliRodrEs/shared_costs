@@ -32,3 +32,8 @@
   font-size: 16px;
   font-weight: bold;
 }
+
+p {
+  margin: 0rem;
+  padding: 0.3rem;
+}
