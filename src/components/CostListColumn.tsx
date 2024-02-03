@@ -10,6 +10,9 @@ const CostsListColumn = ({
   setSavedCosts: (costs: Friend[] | Cost[]) => void;
 }) => {
   const costs = useCostsAndFriends("savedCosts", [], setSavedCosts) as Cost[];
+  const orderedCosts: Cost[] = costs.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
 
   return (
     <>
@@ -26,7 +29,7 @@ const CostsListColumn = ({
               </tr>
             </thead>
             <tbody>
-              {costs.map((cost, index) => (
+              {orderedCosts.map((cost, index) => (
                 <tr key={index}>
                   <td>{cost.person}</td>
                   <td colSpan={2}>{cost.concept}</td>
