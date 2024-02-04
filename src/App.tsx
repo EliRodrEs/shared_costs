@@ -13,6 +13,7 @@ import { Friend } from './friends'
 import { Cost } from './costs'
 import { UseLocalStorage } from './hooks/useLocalStorage'
 import { useCostsAndFriends } from './hooks/useCostsAndFriends'
+import { generateUniqueId } from './util'
 
 function App() {
   const [modalType, setModalType] = useState('')
@@ -36,13 +37,13 @@ function App() {
   const handleSubmitModal = (formData: FriendFormData | CostFormData) => {
     if (modalType === 'friend') {
       const newFriend: Friend = {
-        id: Date.now() + Math.random(),
+        id: generateUniqueId(),
         name: (formData as FriendFormData).name,
       };
       setSavedFriends([...savedFriends, newFriend]);
     } else {
         let newCost: Cost = {
-          id: Date.now() + Math.random(),
+          id: generateUniqueId(),
           person: (formData as CostFormData).person,
           concept: (formData as CostFormData).concept,
           date: (formData as CostFormData).date,

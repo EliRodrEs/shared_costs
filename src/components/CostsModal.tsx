@@ -55,7 +55,7 @@ const CostModal = ({
           onChange={handleChangeSelect}
           required
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Elegir pagador
           </option>
           {friends.map((friend) => (

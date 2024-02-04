@@ -36,5 +36,5 @@ export function getPersonalDebt(
   const personalDebt =
     Math.round((totalCost / numberOfFriends - personalPayments) * 100) / 100;
 
-  return -personalDebt;
+  return -1 * personalDebt
 }

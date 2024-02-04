@@ -9,7 +9,7 @@ const Footer = ({
   friends: Friend[]
   costs: Cost[]
 }) => {
-  const { summaryDebts }: { summaryDebts: FriendDebt[] } = getFriendsDebts(friends, costs);
+  const summaryDebts: FriendDebt[] = getFriendsDebts(friends, costs);
   const classifiedFriends = classifyFriends(summaryDebts);
   const summaryFriendsAndDebts = calculatePayments(
     classifiedFriends.debtors,
