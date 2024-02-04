@@ -3,3 +3,9 @@
   grid-template-columns: 1fr 1fr;
   column-gap: 2rem;
 }
+
+@media (max-width: 900px) {
+  .balance_column_holder{
+      width: 90vw;
+  }
+}
