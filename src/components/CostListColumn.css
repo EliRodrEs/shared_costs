@@ -6,7 +6,7 @@
 }
 th {
   font-size: 1.2rem;
-  border: 1px solid var(--main-color);
+  background-color: var(--main-color);
   color: var(--light-color);
   text-align: center;
   padding: 1rem;
@@ -14,6 +14,10 @@ th {
 td {
   font-size: 1.1rem;
   text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: var(--main-color-700);
 }
 
 @media (max-width: 900px) {

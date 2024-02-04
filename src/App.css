@@ -25,6 +25,7 @@
   justify-content: space-between;
   row-gap: 10rem;
   background-color: var(--txt-color);
+  color: var(--light-color);
 }
 
 main {
