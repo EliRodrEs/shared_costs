@@ -62,7 +62,6 @@ describe("calculatePayments()", () => {
 
   it("should correctly calculate payments when some debts are zero", () => {
     const result = calculatePayments(debtors, creditors);
-    console.log(result)
     expect(result[3].creditorName).toBe("Tav");
     expect(result[3].debtorName).toBe("Shadowheart");
     expect(result[3].payment).toBe(80);
