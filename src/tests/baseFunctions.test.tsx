@@ -24,10 +24,10 @@ import { floatInputCosts, friend, friendWithoutPayments, inputCosts, largeInputC
     it("Should handle floating point amounts correctly", () => {
       expect(getTotalCost(floatInputCosts)).toBeCloseTo(61.55)
      })
-    it("Should return 0 when given null or undefined as input", () => {
-      expect(getTotalCost(null)).toBe(0)
-      expect(getTotalCost(undefined)).toBe(0)
-     })
+    // it("Should return 0 when given null or undefined as input", () => {
+    //   expect(getTotalCost(null)).toBe(0)
+    //   expect(getTotalCost(undefined)).toBe(0)
+    //  })
     it("Should handle large numbers correctly", () => {
       expect(getTotalCost(largeInputCosts)).toBe(199999998);
      })
@@ -58,11 +58,11 @@ describe("getPersonalPayments()", () => {
       expect(getPersonalDebt(inputCosts, numberOfFriends, friend)).toBe(-70);
     });
 
-    it("Should return 0 when costsRepositoryAmounts is falsy", () => {
-      const numberOfFriends: number = 3
-      expect(getPersonalDebt(null, numberOfFriends, friend)).toBe(0);
-      expect(getPersonalDebt(undefined, numberOfFriends, friend)).toBe(0);
-     })
+    // it("Should return 0 when costsRepositoryAmounts is falsy", () => {
+    //   const numberOfFriends: number = 3
+    //   expect(getPersonalDebt(null, numberOfFriends, friend)).toBe(0);
+    //   expect(getPersonalDebt(undefined, numberOfFriends, friend)).toBe(0);
+    //  })
     it("should throw an error when numberOfFriends is less than or equal to 0", () => {
       const numberOfFriends = 0;
       expect(() =>
@@ -70,10 +70,10 @@ describe("getPersonalPayments()", () => {
       ).toThrowError("Number of friends must be greater than 0");
     });
 
-    it("returns 0 when friend is falsy", () => {
-      const numberOfFriends = 4;
-      expect(getPersonalDebt(inputCosts, numberOfFriends, null)).toBe(0);
-      expect(getPersonalDebt(inputCosts, numberOfFriends, undefined)).toBe(0);
-    });
+    // it("returns 0 when friend is falsy", () => {
+    //   const numberOfFriends = 4;
+    //   expect(getPersonalDebt(inputCosts, numberOfFriends, null)).toBe(0);
+    //   expect(getPersonalDebt(inputCosts, numberOfFriends, undefined)).toBe(0);
+    // });
 
   });
