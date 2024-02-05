@@ -1,5 +1,5 @@
 import { it, expect, describe } from "vitest";
-import { getByRole, render, within } from "@testing-library/react";
+import { render, within } from "@testing-library/react";
 import CostsListColumn from "../components/CostListColumn";
 import { inputCosts } from "./mocks";
 
