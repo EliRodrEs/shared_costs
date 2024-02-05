@@ -21,7 +21,11 @@ const CostsListColumn = ({
       <div className="costs_list_column">
         <SectionTitle sec_title="Listado de costes" />
         <div className="cost_list">
-          <table className="cost_table">
+          <table
+            className="cost_table"
+            id="cost_table"
+            data-testid="costs-table"
+          >
             <thead>
               <tr>
                 <th>Persona</th>

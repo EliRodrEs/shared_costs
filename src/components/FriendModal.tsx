@@ -28,8 +28,11 @@ const FriendModal = ({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label className="form_label">Nombre</label>
+        <label htmlFor="name_input" className="form_label">
+          Nombre
+        </label>
         <input
+          id="name_input"
           className="form_input"
           type="text"
           name="name"

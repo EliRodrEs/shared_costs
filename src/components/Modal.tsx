@@ -18,8 +18,11 @@ const Modal: React.FC<ModalProps> = ({
   return (
     <>
       {show && (
-        <div className="modal_holder">
+        <div className="modal_holder" role="dialog" aria-modal="true" aria-labelledby="dialog_label">
           <div className="modal">
+            <h2 id="dialog_label" className="dialog_label">
+              Añadir nuevo
+            </h2>
             <div className="inputs_holder">
               <button className="btn_close" onClick={handleClose}>
                 <i className="fa fa-close"></i>

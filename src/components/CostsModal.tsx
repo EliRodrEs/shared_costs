@@ -47,8 +47,11 @@ const CostModal = ({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label className="form_label">Persona</label>
+        <label htmlFor="friend_selector" className="form_label">
+          Persona
+        </label>
         <select
+          id="friend_selector"
           className="form_input"
           name="person"
           value={costFormData.person}
@@ -64,8 +67,11 @@ const CostModal = ({
             </option>
           ))}
         </select>
-        <label className="form_label">Concepto</label>
+        <label htmlFor="concept_input" className="form_label">
+          Concepto
+        </label>
         <input
+          id="concept_input"
           className="form_input"
           type="text"
           name="concept"
@@ -73,8 +79,11 @@ const CostModal = ({
           onChange={handleChangeInput}
           required
         />
-        <label className="form_label">Fecha</label>
+        <label htmlFor="date_input" className="form_label">
+          Fecha
+        </label>
         <input
+          id="date_input"
           className="form_input"
           type="date"
           name="date"
@@ -86,8 +95,11 @@ const CostModal = ({
           onChange={handleChangeInput}
           required
         />
-        <label className="form_label">Total</label>
+        <label htmlFor="amount_input" className="form_label">
+          Total
+        </label>
         <input
+          id="amount_input"
           className="form_input"
           type="number"
           name="amount"
